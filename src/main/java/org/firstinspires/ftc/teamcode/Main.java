@@ -199,40 +199,20 @@ public class Main extends LinearOpMode {
         back_left_motor.setDirection(DcMotorEx.Direction.REVERSE);
         viper.setDirection(DcMotorEx.Direction.REVERSE);
 
-        front_right_motor.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        front_left_motor.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        back_right_motor.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        back_left_motor.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        arm.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        viper.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        setIndividualSpecifications(front_right_motor);
+        setIndividualSpecifications(front_left_motor);
+        setIndividualSpecifications(back_right_motor);
+        setIndividualSpecifications(back_left_motor);
+        setIndividualSpecifications(arm);
+        setIndividualSpecifications(viper);
+    }
 
-        front_right_motor.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
-        front_left_motor.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
-        back_right_motor.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
-        back_left_motor.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
-        arm.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
-        viper.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
-
-        front_right_motor.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
-        front_left_motor.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
-        back_right_motor.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
-        back_left_motor.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
-        arm.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
-        viper.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
-
-        front_right_motor.setTargetPosition(0);
-        front_left_motor.setTargetPosition(0);
-        back_right_motor.setTargetPosition(0);
-        back_left_motor.setTargetPosition(0);
-        arm.setTargetPosition(0);
-        viper.setTargetPosition(0);
-
-        front_right_motor.setTargetPositionTolerance(10);
-        front_left_motor.setTargetPositionTolerance(10);
-        back_right_motor.setTargetPositionTolerance(10);
-        back_left_motor.setTargetPositionTolerance(10);
-        arm.setTargetPositionTolerance(10);
-        viper.setTargetPositionTolerance(10);
+    private void setIndividualSpecifications(DcMotorEx motor) {
+        motor.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        motor.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
+        motor.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
+        motor.setTargetPosition(0);
+        motor.setTargetPositionTolerance(10);
     }
 
     private void print() {
